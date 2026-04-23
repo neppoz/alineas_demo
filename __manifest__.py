@@ -31,6 +31,7 @@ Alineas Demo Data – Südtirol
         'data/demo_partners.xml',
         'data/demo_products.xml',
         'data/demo_invoices.xml',
+        'data/demo_sales.xml',
     ],
     'pre_init_hook': 'pre_init_hook',
     'post_init_hook': 'post_init_hook',

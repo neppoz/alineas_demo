@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ============================================================
+             ANGEBOTE (state=draft) – noch nicht bestätigt
+             ============================================================ -->
+
+        <!-- Angebot 1: IT-Infrastruktur für Etsch Maschinenbau -->
+        <record id="demo_sale_quote_1" model="sale.order">
+            <field name="company_id" ref="demo_company"/>
+            <field name="partner_id" ref="demo_partner_etsch"/>
+            <field name="state">draft</field>
+            <field name="date_order">2025-02-03 09:00:00</field>
+            <field name="validity_date">2025-03-05</field>
+            <field name="order_line" eval="[
+                (0, 0, {
+                    'product_id': ref('alineas_demo.demo_product_laptop'),
+                    'name': 'Laptop Business Pro',
+                    'product_uom_qty': 8.0,
+                    'price_unit': 1200.00,
+                }),
+                (0, 0, {
+                    'product_id': ref('alineas_demo.demo_product_monitor'),
+                    'name': 'Monitor 27 Zoll 4K',
+                    'product_uom_qty': 8.0,
+                    'price_unit': 420.00,
+                }),
+                (0, 0, {
+                    'product_id': ref('alineas_demo.demo_product_beratung_basis'),
+                    'name': 'Einrichtung und Konfiguration',
+                    'product_uom_qty': 6.0,
+                    'price_unit': 120.00,
+                }),
+            ]"/>
+        </record>
+
+        <!-- Angebot 2: Softwarepaket für Euroservice Management -->
+        <record id="demo_sale_quote_2" model="sale.order">
+            <field name="company_id" ref="demo_company"/>
+            <field name="partner_id" ref="demo_partner_euroservice"/>
+            <field name="state">draft</field>
+            <field name="date_order">2025-02-10 11:00:00</field>
+            <field name="validity_date">2025-03-12</field>
+            <field name="order_line" eval="[
+                (0, 0, {
+                    'product_id': ref('alineas_demo.demo_product_software_abo'),
+                    'name': 'Softwarelizenz Jahresabonnement 2025',
+                    'product_uom_qty': 5.0,
+                    'price_unit': 890.00,
+                }),
+                (0, 0, {
+                    'product_id': ref('alineas_demo.demo_product_it_support'),
+                    'name': 'IT-Support Pauschal – 12 Monate',
+                    'product_uom_qty': 12.0,
+                    'price_unit': 450.00,
+                }),
+            ]"/>
+        </record>
+
+        <!-- Angebot 3: Büroausstattung für Maier & Gruber -->
+        <record id="demo_sale_quote_3" model="sale.order">
+            <field name="company_id" ref="demo_company"/>
+            <field name="partner_id" ref="demo_partner_maier"/>
+            <field name="state">draft</field>
+            <field name="date_order">2025-02-14 14:00:00</field>
+            <field name="validity_date">2025-03-16</field>
+            <field name="order_line" eval="[
+                (0, 0, {
+                    'product_id': ref('alineas_demo.demo_product_burostuhl'),
+                    'name': 'Bürostuhl Ergonomisch',
+                    'product_uom_qty': 4.0,
+                    'price_unit': 285.00,
+                }),
+                (0, 0, {
+                    'product_id': ref('alineas_demo.demo_product_schreibtisch'),
+                    'name': 'Schreibtisch Elektrisch Höhenverstellbar',
+                    'product_uom_qty': 4.0,
+                    'price_unit': 650.00,
+                }),
+                (0, 0, {
+                    'product_id': ref('alineas_demo.demo_product_drucker'),
+                    'name': 'Drucker Multifunktion A4',
+                    'product_uom_qty': 1.0,
+                    'price_unit': 380.00,
+                }),
+            ]"/>
+        </record>
+
+
+        <!-- ============================================================
+             AUFTRÄGE (state=sale) – bestätigt
+             ============================================================ -->
+
+        <!-- Auftrag 1: Beratungspaket für Oberegger Lebensmittelhandel -->
+        <record id="demo_sale_order_1" model="sale.order">
+            <field name="company_id" ref="demo_company"/>
+            <field name="partner_id" ref="demo_partner_oberegger"/>
+            <field name="state">sale</field>
+            <field name="date_order">2025-01-08 08:30:00</field>
+            <field name="order_line" eval="[
+                (0, 0, {
+                    'product_id': ref('alineas_demo.demo_product_beratung_basis'),
+                    'name': 'Beratungsleistung Basis – Q1 2025',
+                    'product_uom_qty': 20.0,
+                    'price_unit': 120.00,
+                }),
+                (0, 0, {
+                    'product_id': ref('alineas_demo.demo_product_it_support'),
+                    'name': 'IT-Support Pauschal Januar–März 2025',
+                    'product_uom_qty': 3.0,
+                    'price_unit': 450.00,
+                }),
+            ]"/>
+        </record>
+
+        <!-- Auftrag 2: Softwarelizenzen für Südtirol Digital -->
+        <record id="demo_sale_order_2" model="sale.order">
+            <field name="company_id" ref="demo_company"/>
+            <field name="partner_id" ref="demo_partner_suedtiroldigital"/>
+            <field name="state">sale</field>
+            <field name="date_order">2025-01-15 10:00:00</field>
+            <field name="order_line" eval="[
+                (0, 0, {
+                    'product_id': ref('alineas_demo.demo_product_software_abo'),
+                    'name': 'Softwarelizenz Jahresabonnement 2025',
+                    'product_uom_qty': 3.0,
+                    'price_unit': 890.00,
+                }),
+            ]"/>
+        </record>
+
+        <!-- Auftrag 3: IT-Ausstattung für Etsch Maschinenbau -->
+        <record id="demo_sale_order_3" model="sale.order">
+            <field name="company_id" ref="demo_company"/>
+            <field name="partner_id" ref="demo_partner_etsch"/>
+            <field name="state">sale</field>
+            <field name="date_order">2025-01-20 09:00:00</field>
+            <field name="order_line" eval="[
+                (0, 0, {
+                    'product_id': ref('alineas_demo.demo_product_laptop'),
+                    'name': 'Laptop Business Pro',
+                    'product_uom_qty': 5.0,
+                    'price_unit': 1200.00,
+                }),
+                (0, 0, {
+                    'product_id': ref('alineas_demo.demo_product_monitor'),
+                    'name': 'Monitor 27 Zoll 4K',
+                    'product_uom_qty': 5.0,
+                    'price_unit': 420.00,
+                }),
+                (0, 0, {
+                    'product_id': ref('alineas_demo.demo_product_beratung_basis'),
+                    'name': 'Einrichtung und Konfiguration',
+                    'product_uom_qty': 4.0,
+                    'price_unit': 120.00,
+                }),
+            ]"/>
+        </record>
+
+        <!-- Auftrag 4: Wartungsvertrag für Inn-Tech Präzisionsteile -->
+        <record id="demo_sale_order_4" model="sale.order">
+            <field name="company_id" ref="demo_company"/>
+            <field name="partner_id" ref="demo_partner_inntech"/>
+            <field name="state">sale</field>
+            <field name="date_order">2025-02-01 08:00:00</field>
+            <field name="order_line" eval="[
+                (0, 0, {
+                    'product_id': ref('alineas_demo.demo_product_wartung'),
+                    'name': 'Wartungsvertrag Q1 2025',
+                    'product_uom_qty': 3.0,
+                    'price_unit': 320.00,
+                }),
+                (0, 0, {
+                    'product_id': ref('alineas_demo.demo_product_beratung_experte'),
+                    'name': 'Beratung Senior-Experte',
+                    'product_uom_qty': 5.0,
+                    'price_unit': 180.00,
+                }),
+            ]"/>
+        </record>
+
+    </data>
+</odoo>
