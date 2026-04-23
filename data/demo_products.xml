@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ============================================================
+             PRODUKTKATEGORIEN
+             ============================================================ -->
+
+        <record id="demo_categ_services" model="product.category">
+            <field name="name">Dienstleistungen</field>
+        </record>
+
+        <record id="demo_categ_waren" model="product.category">
+            <field name="name">Handelswaren</field>
+        </record>
+
+        <record id="demo_categ_rohstoffe" model="product.category">
+            <field name="name">Rohstoffe und Verbrauchsmaterial</field>
+        </record>
+
+
+        <!-- ============================================================
+             DIENSTLEISTUNGEN (type=service)
+             ============================================================ -->
+
+        <record id="demo_product_beratung_basis" model="product.template">
+            <field name="name">Beratungsleistung Basis</field>
+            <field name="default_code">DL-BERAT-BASIS</field>
+            <field name="type">service</field>
+            <field name="categ_id" ref="demo_categ_services"/>
+            <field name="list_price">120.00</field>
+            <field name="standard_price">60.00</field>
+            <field name="uom_id" ref="uom.product_uom_hour"/>
+            <field name="description_sale">Beratung durch einen zertifizierten Fachberater (Standardkontingent)</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_beratung_basis.png"/>
+        </record>
+
+        <record id="demo_product_beratung_experte" model="product.template">
+            <field name="name">Beratungsleistung Experte</field>
+            <field name="default_code">DL-BERAT-EXP</field>
+            <field name="type">service</field>
+            <field name="categ_id" ref="demo_categ_services"/>
+            <field name="list_price">180.00</field>
+            <field name="standard_price">90.00</field>
+            <field name="uom_id" ref="uom.product_uom_hour"/>
+            <field name="description_sale">Beratung durch einen Senior-Experten mit Branchenspezialisierung</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_beratung_experte.png"/>
+        </record>
+
+        <record id="demo_product_it_support" model="product.template">
+            <field name="name">IT-Support Pauschal</field>
+            <field name="default_code">DL-ITSUP-PAU</field>
+            <field name="type">service</field>
+            <field name="categ_id" ref="demo_categ_services"/>
+            <field name="list_price">450.00</field>
+            <field name="standard_price">180.00</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="description_sale">Monatliche IT-Support-Pauschale inkl. Fernwartung und Helpdesk</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_it_support.png"/>
+        </record>
+
+        <record id="demo_product_software_abo" model="product.template">
+            <field name="name">Softwarelizenz Jahresabonnement</field>
+            <field name="default_code">DL-SW-ABO</field>
+            <field name="type">service</field>
+            <field name="categ_id" ref="demo_categ_services"/>
+            <field name="list_price">890.00</field>
+            <field name="standard_price">350.00</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="description_sale">Jahresabonnement inkl. Updates und technischer Unterstützung</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_software_abo.png"/>
+        </record>
+
+        <record id="demo_product_wartung" model="product.template">
+            <field name="name">Wartungsvertrag</field>
+            <field name="default_code">DL-WART</field>
+            <field name="type">service</field>
+            <field name="categ_id" ref="demo_categ_services"/>
+            <field name="list_price">320.00</field>
+            <field name="standard_price">120.00</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="description_sale">Monatlicher Wartungsvertrag für Maschinen und Anlagen</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_wartung.png"/>
+        </record>
+
+        <record id="demo_product_transport" model="product.template">
+            <field name="name">Transportdienstleistung</field>
+            <field name="default_code">DL-TRANS</field>
+            <field name="type">service</field>
+            <field name="categ_id" ref="demo_categ_services"/>
+            <field name="list_price">95.00</field>
+            <field name="standard_price">55.00</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="description_sale">Standardlieferung im Raum Südtirol inkl. Entladen</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_transport.png"/>
+        </record>
+
+
+        <!-- ============================================================
+             HANDELSWAREN (type=consu oder storable)
+             ============================================================ -->
+
+        <record id="demo_product_laptop" model="product.template">
+            <field name="name">Laptop Business Pro</field>
+            <field name="default_code">HW-LAPTOP-PRO</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="demo_categ_waren"/>
+            <field name="list_price">1200.00</field>
+            <field name="standard_price">820.00</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="description_sale">Business-Laptop, 14 Zoll, 16 GB RAM, 512 GB SSD</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_laptop.png"/>
+        </record>
+
+        <record id="demo_product_monitor" model="product.template">
+            <field name="name">Monitor 27 Zoll 4K</field>
+            <field name="default_code">HW-MON-27</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="demo_categ_waren"/>
+            <field name="list_price">420.00</field>
+            <field name="standard_price">280.00</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="description_sale">4K-Monitor mit USB-C Anschluss und höhenverstellbarem Fuß</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_monitor.png"/>
+        </record>
+
+        <record id="demo_product_burostuhl" model="product.template">
+            <field name="name">Bürostuhl Ergonomisch</field>
+            <field name="default_code">MOB-STHL-ERG</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="demo_categ_waren"/>
+            <field name="list_price">285.00</field>
+            <field name="standard_price">165.00</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="description_sale">Ergonomischer Bürostuhl mit Lordosenstütze und Armauflagen</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_burostuhl.png"/>
+        </record>
+
+        <record id="demo_product_schreibtisch" model="product.template">
+            <field name="name">Schreibtisch Elektrisch Höhenverstellbar</field>
+            <field name="default_code">MOB-TISCH-EL</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="demo_categ_waren"/>
+            <field name="list_price">650.00</field>
+            <field name="standard_price">390.00</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="description_sale">Elektrisch höhenverstellbarer Schreibtisch 140x70 cm</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_schreibtisch.png"/>
+        </record>
+
+        <record id="demo_product_drucker" model="product.template">
+            <field name="name">Drucker Multifunktion A4</field>
+            <field name="default_code">HW-DRCK-MF</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="demo_categ_waren"/>
+            <field name="list_price">380.00</field>
+            <field name="standard_price">240.00</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="description_sale">Multifunktionsdrucker A4, Duplex, WLAN, Scan, Fax</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_drucker.png"/>
+        </record>
+
+
+        <!-- ============================================================
+             ROHSTOFFE UND LAGERWARE (type=product = storable)
+             ============================================================ -->
+
+        <record id="demo_product_stahlrohr" model="product.template">
+            <field name="name">Stahlrohr DN50</field>
+            <field name="default_code">MAT-STAHL-DN50</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="demo_categ_rohstoffe"/>
+            <field name="list_price">14.50</field>
+            <field name="standard_price">9.20</field>
+            <field name="uom_id" ref="uom.product_uom_meter"/>
+            <field name="description_sale">Nahtloses Stahlrohr DN50, Wandstärke 3,2 mm, EN 10220</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_stahlrohr.png"/>
+        </record>
+
+        <record id="demo_product_aluminium" model="product.template">
+            <field name="name">Aluminiumblech 2mm</field>
+            <field name="default_code">MAT-ALU-2MM</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="demo_categ_rohstoffe"/>
+            <field name="list_price">9.80</field>
+            <field name="standard_price">6.40</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="description_sale">Aluminiumblech 2 mm, Zuschnitt nach Maß möglich</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_aluminium.png"/>
+        </record>
+
+        <record id="demo_product_holzbalken" model="product.template">
+            <field name="name">Holzbalken 10x10 cm</field>
+            <field name="default_code">MAT-HOLZ-1010</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="demo_categ_rohstoffe"/>
+            <field name="list_price">18.00</field>
+            <field name="standard_price">11.50</field>
+            <field name="uom_id" ref="uom.product_uom_meter"/>
+            <field name="description_sale">Fichtenholzbalken 10x10 cm, trocken, sägerau, Klasse C24</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_holzbalken.png"/>
+        </record>
+
+        <record id="demo_product_schrauben" model="product.template">
+            <field name="name">Schrauben Sortiment M6/M8</field>
+            <field name="default_code">MAT-SCHR-SORT</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="demo_categ_rohstoffe"/>
+            <field name="list_price">28.00</field>
+            <field name="standard_price">16.00</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="description_sale">Schrauben-Sortimentskasten M6/M8, 400-teilig, Edelstahl A2</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_schrauben.png"/>
+        </record>
+
+        <record id="demo_product_reinigungsmittel" model="product.template">
+            <field name="name">Reinigungsmittel Industrie-Set</field>
+            <field name="default_code">VBR-REIN-SET</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="demo_categ_rohstoffe"/>
+            <field name="list_price">48.00</field>
+            <field name="standard_price">29.00</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="description_sale">Professionelles Reinigungsset für Industriehallen, 5 L Konzentrat</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_reinigung.png"/>
+        </record>
+
+        <record id="demo_product_sicherheit" model="product.template">
+            <field name="name">Sicherheitsausrüstung Basis-Set</field>
+            <field name="default_code">VBR-SICHER-SET</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="demo_categ_rohstoffe"/>
+            <field name="list_price">98.00</field>
+            <field name="standard_price">58.00</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="description_sale">PSA Basis-Set: Helm, Schutzbrille, Handschuhe, Sicherheitsschuhe</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_sicherheit.png"/>
+        </record>
+
+        <record id="demo_product_palette" model="product.template">
+            <field name="name">Transportpalette EUR</field>
+            <field name="default_code">MAT-PAL-EUR</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="demo_categ_rohstoffe"/>
+            <field name="list_price">14.00</field>
+            <field name="standard_price">9.00</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="description_sale">EPAL-Palette 1200x800 mm, geprüft und zertifiziert</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_palette.png"/>
+        </record>
+
+        <record id="demo_product_messinstrument" model="product.template">
+            <field name="name">Messinstrument kalibriert</field>
+            <field name="default_code">MAT-MESS-KAL</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="demo_categ_rohstoffe"/>
+            <field name="list_price">285.00</field>
+            <field name="standard_price">195.00</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="description_sale">Digitales Messinstrument, kalibriert, inkl. DAkkS-Zertifikat</field>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/prod_messinstrument.png"/>
+        </record>
+
+    </data>
+</odoo>

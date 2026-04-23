@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ============================================================
+             SÜDTIROLER PARTNER – BOZEN UND UMGEBUNG
+             15 fiktive Unternehmen aus den Branchen Handel,
+             Dienstleistungen und Industrie.
+             E-Mail-Adressen sind fake (.example) – kein E-Mail-Versand!
+             ============================================================ -->
+
+
+        <!-- ── HANDEL / KUNDEN ───────────────────────────────────────── -->
+
+        <record id="demo_partner_oberegger" model="res.partner">
+            <field name="name">Oberegger Lebensmittelhandel GmbH</field>
+            <field name="is_company" eval="True"/>
+            <field name="customer_rank">1</field>
+            <field name="street">Gampenstraße 8</field>
+            <field name="zip">39012</field>
+            <field name="city">Meran</field>
+            <field name="country_id" ref="base.it"/>
+            <field name="state_id" ref="base.state_it_bz"/>
+            <field name="phone">+39 0473 211340</field>
+            <field name="email">info@oberegger-lebensmittel.example</field>
+            <field name="l10n_it_pec_email">pec@oberegger-lebensmittel.example</field>
+            <field name="vat">IT02112340217</field>
+            <field name="l10n_it_codice_fiscale">02112340217</field>
+            <field name="l10n_it_pa_index">OBR1234</field>
+            <field name="lang">de_DE</field>
+        </record>
+
+        <record id="demo_partner_sarntal" model="res.partner">
+            <field name="name">Sarntal Baustoffe AG</field>
+            <field name="is_company" eval="True"/>
+            <field name="customer_rank">1</field>
+            <field name="street">Reschenstraße 22</field>
+            <field name="zip">39100</field>
+            <field name="city">Bozen</field>
+            <field name="country_id" ref="base.it"/>
+            <field name="state_id" ref="base.state_it_bz"/>
+            <field name="phone">+39 0471 445566</field>
+            <field name="email">info@sarntal-baustoffe.example</field>
+            <field name="l10n_it_pec_email">pec@sarntal-baustoffe.example</field>
+            <field name="vat">IT12345670215</field>
+            <field name="l10n_it_codice_fiscale">12345670215</field>
+            <field name="l10n_it_pa_index">SAR5678</field>
+            <field name="lang">de_DE</field>
+        </record>
+
+        <record id="demo_partner_vinschgau" model="res.partner">
+            <field name="name">Vinschgau Frischobst GmbH</field>
+            <field name="is_company" eval="True"/>
+            <field name="customer_rank">1</field>
+            <field name="supplier_rank">1</field>
+            <field name="street">Hauptstraße 45</field>
+            <field name="zip">39025</field>
+            <field name="city">Naturns</field>
+            <field name="country_id" ref="base.it"/>
+            <field name="state_id" ref="base.state_it_bz"/>
+            <field name="phone">+39 0473 667788</field>
+            <field name="email">info@vinschgau-frischobst.example</field>
+            <field name="l10n_it_pec_email">pec@vinschgau-frischobst.example</field>
+            <field name="vat">IT03456780216</field>
+            <field name="l10n_it_codice_fiscale">03456780216</field>
+            <field name="l10n_it_pa_index">VIN9012</field>
+            <field name="lang">de_DE</field>
+        </record>
+
+        <record id="demo_partner_etsch" model="res.partner">
+            <field name="name">Etsch Maschinenbau GmbH</field>
+            <field name="is_company" eval="True"/>
+            <field name="customer_rank">1</field>
+            <field name="street">Galvanistraße 3</field>
+            <field name="zip">39100</field>
+            <field name="city">Bozen</field>
+            <field name="country_id" ref="base.it"/>
+            <field name="state_id" ref="base.state_it_bz"/>
+            <field name="phone">+39 0471 887766</field>
+            <field name="email">info@etsch-maschinenbau.example</field>
+            <field name="l10n_it_pec_email">pec@etsch-maschinenbau.example</field>
+            <field name="vat">IT08800560214</field>
+            <field name="l10n_it_codice_fiscale">08800560214</field>
+            <field name="l10n_it_pa_index">ETS3456</field>
+            <field name="lang">de_DE</field>
+        </record>
+
+        <record id="demo_partner_inntech" model="res.partner">
+            <field name="name">Inn-Tech Präzisionsteile GmbH</field>
+            <field name="is_company" eval="True"/>
+            <field name="customer_rank">1</field>
+            <field name="street">Mitterweg 17</field>
+            <field name="zip">39012</field>
+            <field name="city">Meran</field>
+            <field name="country_id" ref="base.it"/>
+            <field name="state_id" ref="base.state_it_bz"/>
+            <field name="phone">+39 0473 334455</field>
+            <field name="email">info@inntech-praezision.example</field>
+            <field name="l10n_it_pec_email">pec@inntech-praezision.example</field>
+            <field name="vat">IT01100890217</field>
+            <field name="l10n_it_codice_fiscale">01100890217</field>
+            <field name="l10n_it_pa_index">INN7890</field>
+            <field name="lang">de_DE</field>
+        </record>
+
+
+        <!-- ── HANDEL / LIEFERANTEN ──────────────────────────────────── -->
+
+        <record id="demo_partner_brenner" model="res.partner">
+            <field name="name">Brenner Import Export GmbH</field>
+            <field name="is_company" eval="True"/>
+            <field name="supplier_rank">1</field>
+            <field name="street">Brennerstraße 100</field>
+            <field name="zip">39100</field>
+            <field name="city">Bozen</field>
+            <field name="country_id" ref="base.it"/>
+            <field name="state_id" ref="base.state_it_bz"/>
+            <field name="phone">+39 0471 556677</field>
+            <field name="email">info@brenner-import.example</field>
+            <field name="l10n_it_pec_email">pec@brenner-import.example</field>
+            <field name="vat">IT05678900217</field>
+            <field name="l10n_it_codice_fiscale">05678900217</field>
+            <field name="l10n_it_pa_index">BRE2345</field>
+            <field name="lang">de_DE</field>
+        </record>
+
+        <record id="demo_partner_rittner" model="res.partner">
+            <field name="name">Rittner Verpackung GmbH</field>
+            <field name="is_company" eval="True"/>
+            <field name="supplier_rank">1</field>
+            <field name="street">Ritten Straße 7</field>
+            <field name="zip">39100</field>
+            <field name="city">Bozen</field>
+            <field name="country_id" ref="base.it"/>
+            <field name="state_id" ref="base.state_it_bz"/>
+            <field name="phone">+39 0471 778899</field>
+            <field name="email">info@rittner-verpackung.example</field>
+            <field name="l10n_it_pec_email">pec@rittner-verpackung.example</field>
+            <field name="vat">IT04321000210</field>
+            <field name="l10n_it_codice_fiscale">04321000210</field>
+            <field name="l10n_it_pa_index">RIT6789</field>
+            <field name="lang">de_DE</field>
+        </record>
+
+
+        <!-- ── DIENSTLEISTUNGEN / KUNDEN ─────────────────────────────── -->
+
+        <record id="demo_partner_maier" model="res.partner">
+            <field name="name">Maier &amp; Gruber Steuerberatung KG</field>
+            <field name="is_company" eval="True"/>
+            <field name="customer_rank">1</field>
+            <field name="street">Domplatz 6</field>
+            <field name="zip">39042</field>
+            <field name="city">Brixen</field>
+            <field name="country_id" ref="base.it"/>
+            <field name="state_id" ref="base.state_it_bz"/>
+            <field name="phone">+39 0472 112233</field>
+            <field name="email">info@maier-gruber-steuern.example</field>
+            <field name="l10n_it_pec_email">pec@maier-gruber-steuern.example</field>
+            <field name="vat">IT07890120210</field>
+            <field name="l10n_it_codice_fiscale">07890120210</field>
+            <field name="l10n_it_pa_index">MAI0123</field>
+            <field name="lang">de_DE</field>
+        </record>
+
+        <record id="demo_partner_suedtiroldigital" model="res.partner">
+            <field name="name">Südtirol Digital GmbH</field>
+            <field name="is_company" eval="True"/>
+            <field name="customer_rank">1</field>
+            <field name="street">Talferstraße 12</field>
+            <field name="zip">39100</field>
+            <field name="city">Bozen</field>
+            <field name="country_id" ref="base.it"/>
+            <field name="state_id" ref="base.state_it_bz"/>
+            <field name="phone">+39 0471 990011</field>
+            <field name="email">info@suedtirol-digital.example</field>
+            <field name="l10n_it_pec_email">pec@suedtirol-digital.example</field>
+            <field name="vat">IT09012340213</field>
+            <field name="l10n_it_codice_fiscale">09012340213</field>
+            <field name="l10n_it_pa_index">SDI4567</field>
+            <field name="lang">de_DE</field>
+        </record>
+
+        <record id="demo_partner_euroservice" model="res.partner">
+            <field name="name">Euroservice Management AG</field>
+            <field name="is_company" eval="True"/>
+            <field name="customer_rank">1</field>
+            <field name="street">Siegesplatz 4</field>
+            <field name="zip">39100</field>
+            <field name="city">Bozen</field>
+            <field name="country_id" ref="base.it"/>
+            <field name="state_id" ref="base.state_it_bz"/>
+            <field name="phone">+39 0471 223344</field>
+            <field name="email">info@euroservice-management.example</field>
+            <field name="l10n_it_pec_email">pec@euroservice-management.example</field>
+            <field name="vat">IT06543210212</field>
+            <field name="l10n_it_codice_fiscale">06543210212</field>
+            <field name="l10n_it_pa_index">EUR8901</field>
+            <field name="lang">de_DE</field>
+        </record>
+
+
+        <!-- ── DIENSTLEISTUNGEN / LIEFERANTEN ───────────────────────── -->
+
+        <record id="demo_partner_alpentrans" model="res.partner">
+            <field name="name">Alpentrans Logistik GmbH</field>
+            <field name="is_company" eval="True"/>
+            <field name="supplier_rank">1</field>
+            <field name="street">Kronplatzstraße 55</field>
+            <field name="zip">39031</field>
+            <field name="city">Bruneck</field>
+            <field name="country_id" ref="base.it"/>
+            <field name="state_id" ref="base.state_it_bz"/>
+            <field name="phone">+39 0474 445566</field>
+            <field name="email">info@alpentrans-logistik.example</field>
+            <field name="l10n_it_pec_email">pec@alpentrans-logistik.example</field>
+            <field name="vat">IT08765430213</field>
+            <field name="l10n_it_codice_fiscale">08765430213</field>
+            <field name="l10n_it_pa_index">ALP2345</field>
+            <field name="lang">de_DE</field>
+        </record>
+
+        <record id="demo_partner_bozner_reinigung" model="res.partner">
+            <field name="name">Bozner Gebäudereinigung GmbH</field>
+            <field name="is_company" eval="True"/>
+            <field name="supplier_rank">1</field>
+            <field name="street">Griesweg 33</field>
+            <field name="zip">39100</field>
+            <field name="city">Bozen</field>
+            <field name="country_id" ref="base.it"/>
+            <field name="state_id" ref="base.state_it_bz"/>
+            <field name="phone">+39 0471 667788</field>
+            <field name="email">info@bozner-reinigung.example</field>
+            <field name="l10n_it_pec_email">pec@bozner-reinigung.example</field>
+            <field name="vat">IT01234560215</field>
+            <field name="l10n_it_codice_fiscale">01234560215</field>
+            <field name="l10n_it_pa_index">BOZ6789</field>
+            <field name="lang">de_DE</field>
+        </record>
+
+
+        <!-- ── INDUSTRIE / LIEFERANTEN ───────────────────────────────── -->
+
+        <record id="demo_partner_eisack" model="res.partner">
+            <field name="name">Eisack Metallbau GmbH</field>
+            <field name="is_company" eval="True"/>
+            <field name="supplier_rank">1</field>
+            <field name="street">Industriezone Vahrn 8</field>
+            <field name="zip">39042</field>
+            <field name="city">Brixen</field>
+            <field name="country_id" ref="base.it"/>
+            <field name="state_id" ref="base.state_it_bz"/>
+            <field name="phone">+39 0472 334455</field>
+            <field name="email">info@eisack-metallbau.example</field>
+            <field name="l10n_it_pec_email">pec@eisack-metallbau.example</field>
+            <field name="vat">IT02200450217</field>
+            <field name="l10n_it_codice_fiscale">02200450217</field>
+            <field name="l10n_it_pa_index">EIS0123</field>
+            <field name="lang">de_DE</field>
+        </record>
+
+        <record id="demo_partner_dolomit" model="res.partner">
+            <field name="name">Dolomit Holzverarbeitung AG</field>
+            <field name="is_company" eval="True"/>
+            <field name="supplier_rank">1</field>
+            <field name="street">Pustertalerstraße 19</field>
+            <field name="zip">39031</field>
+            <field name="city">Bruneck</field>
+            <field name="country_id" ref="base.it"/>
+            <field name="state_id" ref="base.state_it_bz"/>
+            <field name="phone">+39 0474 556677</field>
+            <field name="email">info@dolomit-holz.example</field>
+            <field name="l10n_it_pec_email">pec@dolomit-holz.example</field>
+            <field name="vat">IT04400780211</field>
+            <field name="l10n_it_codice_fiscale">04400780211</field>
+            <field name="l10n_it_pa_index">DOL4567</field>
+            <field name="lang">de_DE</field>
+        </record>
+
+        <record id="demo_partner_puster" model="res.partner">
+            <field name="name">Puster Kunststofftechnik GmbH</field>
+            <field name="is_company" eval="True"/>
+            <field name="supplier_rank">1</field>
+            <field name="street">Handwerkerzone 14</field>
+            <field name="zip">39031</field>
+            <field name="city">Bruneck</field>
+            <field name="country_id" ref="base.it"/>
+            <field name="state_id" ref="base.state_it_bz"/>
+            <field name="phone">+39 0474 778899</field>
+            <field name="email">info@puster-kunststoff.example</field>
+            <field name="l10n_it_pec_email">pec@puster-kunststoff.example</field>
+            <field name="vat">IT06601230219</field>
+            <field name="l10n_it_codice_fiscale">06601230219</field>
+            <field name="l10n_it_pa_index">PUS8901</field>
+            <field name="lang">de_DE</field>
+        </record>
+
+    </data>
+</odoo>

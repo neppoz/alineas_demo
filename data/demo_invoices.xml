@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ============================================================
+             AUSGANGSRECHNUNGEN (out_invoice) – TD01
+             Kunden aus dem Südtiroler Markt
+             ============================================================ -->
+
+        <!-- Rechnung 1: Beratungsleistungen an Oberegger – ENTWURF -->
+        <record id="demo_invoice_out_1" model="account.move">
+            <field name="move_type">out_invoice</field>
+            <field name="company_id" ref="demo_company"/>
+            <field name="partner_id" ref="demo_partner_oberegger"/>
+            <field name="invoice_date">2025-01-10</field>
+            <field name="invoice_date_due">2025-02-09</field>
+            <field name="l10n_it_document_type" ref="l10n_it_edi.l10n_it_document_type_01"/>
+            <field name="invoice_line_ids" eval="[
+                (0, 0, {
+                    'name': 'Beratungsleistung Basis – Januar 2025',
+                    'product_id': ref('alineas_demo.demo_product_beratung_basis'),
+                    'quantity': 12.0,
+                    'price_unit': 120.00,
+                }),
+                (0, 0, {
+                    'name': 'IT-Support Pauschal Januar 2025',
+                    'product_id': ref('alineas_demo.demo_product_it_support'),
+                    'quantity': 1.0,
+                    'price_unit': 450.00,
+                }),
+            ]"/>
+        </record>
+
+        <!-- Rechnung 2: Software-Abo an Südtirol Digital – ZU BUCHEN -->
+        <record id="demo_invoice_out_2" model="account.move">
+            <field name="move_type">out_invoice</field>
+            <field name="company_id" ref="demo_company"/>
+            <field name="partner_id" ref="demo_partner_suedtiroldigital"/>
+            <field name="invoice_date">2025-01-15</field>
+            <field name="invoice_date_due">2025-02-14</field>
+            <field name="l10n_it_document_type" ref="l10n_it_edi.l10n_it_document_type_01"/>
+            <field name="invoice_line_ids" eval="[
+                (0, 0, {
+                    'name': 'Softwarelizenz Jahresabonnement 2025',
+                    'product_id': ref('alineas_demo.demo_product_software_abo'),
+                    'quantity': 3.0,
+                    'price_unit': 890.00,
+                }),
+            ]"/>
+        </record>
+
+        <!-- Rechnung 3: Gerätelieferung an Etsch Maschinenbau – ZU BUCHEN -->
+        <record id="demo_invoice_out_3" model="account.move">
+            <field name="move_type">out_invoice</field>
+            <field name="company_id" ref="demo_company"/>
+            <field name="partner_id" ref="demo_partner_etsch"/>
+            <field name="invoice_date">2025-01-20</field>
+            <field name="invoice_date_due">2025-03-21</field>
+            <field name="l10n_it_document_type" ref="l10n_it_edi.l10n_it_document_type_01"/>
+            <field name="invoice_line_ids" eval="[
+                (0, 0, {
+                    'name': 'Laptop Business Pro',
+                    'product_id': ref('alineas_demo.demo_product_laptop'),
+                    'quantity': 5.0,
+                    'price_unit': 1200.00,
+                }),
+                (0, 0, {
+                    'name': 'Monitor 27 Zoll 4K',
+                    'product_id': ref('alineas_demo.demo_product_monitor'),
+                    'quantity': 5.0,
+                    'price_unit': 420.00,
+                }),
+                (0, 0, {
+                    'name': 'Einrichtung und Konfiguration',
+                    'product_id': ref('alineas_demo.demo_product_beratung_basis'),
+                    'quantity': 4.0,
+                    'price_unit': 120.00,
+                }),
+            ]"/>
+        </record>
+
+        <!-- Rechnung 4: Wartungsvertrag an Euroservice – ENTWURF -->
+        <record id="demo_invoice_out_4" model="account.move">
+            <field name="move_type">out_invoice</field>
+            <field name="company_id" ref="demo_company"/>
+            <field name="partner_id" ref="demo_partner_euroservice"/>
+            <field name="invoice_date">2025-02-01</field>
+            <field name="invoice_date_due">2025-03-03</field>
+            <field name="l10n_it_document_type" ref="l10n_it_edi.l10n_it_document_type_01"/>
+            <field name="invoice_line_ids" eval="[
+                (0, 0, {
+                    'name': 'Wartungsvertrag Februar 2025',
+                    'product_id': ref('alineas_demo.demo_product_wartung'),
+                    'quantity': 1.0,
+                    'price_unit': 320.00,
+                }),
+                (0, 0, {
+                    'name': 'Beratungsleistung Experte',
+                    'product_id': ref('alineas_demo.demo_product_beratung_experte'),
+                    'quantity': 3.0,
+                    'price_unit': 180.00,
+                }),
+            ]"/>
+        </record>
+
+
+        <!-- ============================================================
+             GUTSCHRIFT (out_refund) – TD04
+             ============================================================ -->
+
+        <!-- Gutschrift 5: Teilstorno an Sarntal Baustoffe -->
+        <record id="demo_invoice_refund_1" model="account.move">
+            <field name="move_type">out_refund</field>
+            <field name="company_id" ref="demo_company"/>
+            <field name="partner_id" ref="demo_partner_sarntal"/>
+            <field name="invoice_date">2025-01-28</field>
+            <field name="invoice_date_due">2025-01-28</field>
+            <field name="l10n_it_document_type" ref="l10n_it_edi.l10n_it_document_type_04"/>
+            <field name="invoice_line_ids" eval="[
+                (0, 0, {
+                    'name': 'Gutschrift: Rückgabe Bürostuhl (Beschädigungsfall)',
+                    'product_id': ref('alineas_demo.demo_product_burostuhl'),
+                    'quantity': 1.0,
+                    'price_unit': 285.00,
+                }),
+            ]"/>
+        </record>
+
+
+        <!-- ============================================================
+             EINGANGSRECHNUNGEN (in_invoice) – TD01 / TD06
+             Lieferanten aus Südtirol
+             ============================================================ -->
+
+        <!-- Rechnung 6: Material von Eisack Metallbau – ENTWURF -->
+        <record id="demo_invoice_in_1" model="account.move">
+            <field name="move_type">in_invoice</field>
+            <field name="company_id" ref="demo_company"/>
+            <field name="partner_id" ref="demo_partner_eisack"/>
+            <field name="invoice_date">2025-01-08</field>
+            <field name="invoice_date_due">2025-02-07</field>
+            <field name="l10n_it_document_type" ref="l10n_it_edi.l10n_it_document_type_01"/>
+            <field name="ref">EIS/2025/00042</field>
+            <field name="invoice_line_ids" eval="[
+                (0, 0, {
+                    'name': 'Stahlrohr DN50 – Lieferung KW02/2025',
+                    'product_id': ref('alineas_demo.demo_product_stahlrohr'),
+                    'quantity': 120.0,
+                    'price_unit': 9.20,
+                }),
+                (0, 0, {
+                    'name': 'Transportpalette EUR',
+                    'product_id': ref('alineas_demo.demo_product_palette'),
+                    'quantity': 10.0,
+                    'price_unit': 9.00,
+                }),
+            ]"/>
+        </record>
+
+        <!-- Rechnung 7: Transportdienstleistung Alpentrans – ZU BUCHEN -->
+        <record id="demo_invoice_in_2" model="account.move">
+            <field name="move_type">in_invoice</field>
+            <field name="company_id" ref="demo_company"/>
+            <field name="partner_id" ref="demo_partner_alpentrans"/>
+            <field name="invoice_date">2025-01-22</field>
+            <field name="invoice_date_due">2025-02-21</field>
+            <field name="l10n_it_document_type" ref="l10n_it_edi.l10n_it_document_type_01"/>
+            <field name="ref">ALP/2025/0118</field>
+            <field name="invoice_line_ids" eval="[
+                (0, 0, {
+                    'name': 'Transportlieferungen Januar 2025 – 8 Fahrten',
+                    'product_id': ref('alineas_demo.demo_product_transport'),
+                    'quantity': 8.0,
+                    'price_unit': 95.00,
+                }),
+            ]"/>
+        </record>
+
+    </data>
+</odoo>

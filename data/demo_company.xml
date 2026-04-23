@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ============================================================
+             MUSTER-UNTERNEHMEN: Alpenvision GmbH, Bozen
+             Südtiroler IT-Dienstleistungsunternehmen
+             ============================================================ -->
+
+        <record id="demo_company_partner" model="res.partner">
+            <field name="name">Alpenvision GmbH</field>
+            <field name="is_company" eval="True"/>
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/company_logo.png"/>
+            <field name="street">Industriestraße 15</field>
+            <field name="zip">39100</field>
+            <field name="city">Bozen</field>
+            <field name="country_id" ref="base.it"/>
+            <field name="state_id" ref="base.state_it_bz"/>
+            <field name="phone">+39 0471 123456</field>
+            <field name="email">info@alpenvision.example</field>
+            <field name="website">www.alpenvision.example</field>
+            <field name="vat">IT02500780214</field>
+            <field name="lang">de_DE</field>
+        </record>
+
+        <record id="demo_company" model="res.company">
+            <field name="name">Alpenvision GmbH</field>
+            <field name="partner_id" ref="demo_company_partner"/>
+            <field name="email">info@alpenvision.example</field>
+            <field name="phone">+39 0471 123456</field>
+            <field name="street">Industriestraße 15</field>
+            <field name="zip">39100</field>
+            <field name="city">Bozen</field>
+            <field name="country_id" ref="base.it"/>
+            <field name="state_id" ref="base.state_it_bz"/>
+            <field name="vat">IT02500780214</field>
+            <field name="l10n_it_codice_fiscale">02500780214</field>
+            <field name="l10n_it_tax_system">RF01</field>
+        </record>
+
+        <!-- SDI-Code (Codice Destinatario) auf dem Partner setzen -->
+        <record id="demo_company_partner" model="res.partner">
+            <field name="l10n_it_pa_index">ALPENV0</field>
+        </record>
+
+        <!-- Bankkonto -->
+        <record id="demo_company_bank" model="res.partner.bank">
+            <field name="acc_number">IT60X0542811101000000012345</field>
+            <field name="acc_type">iban</field>
+            <field name="partner_id" ref="demo_company_partner"/>
+            <field name="company_id" ref="demo_company"/>
+            <field name="allow_out_payment" eval="True"/>
+        </record>
+
+        <!-- Benutzer der Demo-Firma zuweisen + Avatar setzen -->
+        <function model="res.users" name="write">
+            <value eval="[ref('base.user_root'), ref('base.user_admin')]"/>
+            <value eval="{'company_ids': [(4, ref('alineas_demo.demo_company'))]}"/>
+        </function>
+
+        <record id="base.user_admin" model="res.users">
+            <field name="image_1920" type="base64" file="alineas_demo/static/img/user_avatar.png"/>
+        </record>
+
+        <!-- Italienischen Kontenplan laden -->
+        <function model="account.chart.template" name="try_loading">
+            <value eval="[]"/>
+            <value>it</value>
+            <value model="res.company" eval="obj().env.ref('alineas_demo.demo_company')"/>
+            <value name="install_demo" eval="False"/>
+        </function>
+
+        <!-- ============================================================
+             SDI DEMO-MODUS: simulierter Austausch ohne echte Zugangsdaten
+             Kunden sehen den vollen FatturaPA-Workflow (Senden, Empfangen,
+             Status-Rückmeldung) gegen den Odoo-Demo-Proxy.
+             ============================================================ -->
+
+        <!-- Demo-Zertifikat (Testschlüssel von Odoo mitgeliefert) -->
+        <record id="demo_edi_key" model="certificate.key">
+            <field name="name">Alpenvision GmbH – Demo SDI Key</field>
+            <field name="content" type="base64" file="l10n_it_edi/data/pkey.key"/>
+        </record>
+
+        <!-- EDI-Proxy-User im Demo-Modus: simuliert den SDI-Austausch -->
+        <record id="demo_edi_proxy_user" model="account_edi_proxy_client.user">
+            <field name="id_client">alpenvision_demo_client</field>
+            <field name="company_id" ref="demo_company"/>
+            <field name="proxy_type">l10n_it_edi</field>
+            <field name="edi_mode">demo</field>
+            <field name="edi_identification">02500780214</field>
+            <field name="private_key_id" ref="demo_edi_key"/>
+            <field name="refresh_token">demo</field>
+        </record>
+
+    </data>
+</odoo>
